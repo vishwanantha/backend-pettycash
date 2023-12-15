@@ -23,13 +23,16 @@ const addExpense = async (req, res) => {
         if(amount <= 0 || !amount === 'number'){
             return res.status(400).json({message: 'Amount must be a positive number!'})
         }
+        console.log(income)
         await income.save()
         res.status(200).json({message: 'Expense Added'})
+      
     } catch (error) {
+    console.log(error)
         res.status(500).json({message: 'Server Error'})
     }
 
-    console.log(income)
+    
 }
 
 const getExpense = async (req, res) =>{
